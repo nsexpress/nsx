@@ -26,6 +26,17 @@ module NSX.SPO {
             if (!response.ok) console.log(`Fetch error on: ${url}`);
             return await response.json();
         }
+
+        public static async getSpVtiItems (siteUrl: string, listName: string, query: string): Promise<JSON> {
+            const url:string = `${siteUrl}_vti_bin/listdata.svc/${listName}${query}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: { "Accept": "application/json; odata=verbose" },
+                credentials: 'same-origin'
+            });
+            if (!response.ok) console.log(`Fetch error on: ${url}`);
+            return await response.json();
+        }
         
         public static async createSpItem (siteUrl: string, listName: string, itemProperties: string): Promise<boolean> {
             const token:string = await this.getRequestDigest(siteUrl);
