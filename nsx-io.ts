@@ -1,7 +1,6 @@
 module NSX.IO {
 
     export class File {
-
         public static async getJson (url: string): Promise<JSON> {
             const response = await fetch(url, {
                 method: 'GET',
@@ -21,6 +20,5 @@ module NSX.IO {
             if (!response.ok) console.log(`Fetch error on: ${url}`);
             return await response.text();
         }
-        
     }          
 }
