@@ -7,9 +7,9 @@ var uglify = require('gulp-uglify');
 function defaultTask(cb) {
     return gulp.src(['./*.ts'])
         .pipe(tsProject())
-        .pipe(concat('nsx-spo.js'))
+        .pipe(concat('nsx.js'))
         .pipe(gulp.dest('./dist/'))
-        .pipe(concat('nsx-spo.min.js'))
+        .pipe(concat('nsx.min.js'))
         .pipe(uglify({ mangle: true, compress: true }))
         .pipe(gulp.dest('./dist/'));
     cb();
